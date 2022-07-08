@@ -7,7 +7,7 @@ void FillArray(int[]collection)
     //Цикл для заполнения массива случайными цислами 
     while (index < length)
     {
-        collection[index] = new Random().Next(1, 10);
+        collection[index] = new Random().Next(1, 101);
         index++;
     }
 }
@@ -25,6 +25,34 @@ void PrintArray(int[] coll)
     }
 } 
 
+void SelectionSort(int[]array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        int minPosition = i;
+        for(int j = i + 1; j < array.Length; j++)
+        {
+            if(array[j] < array[minPosition])
+            {
+                minPosition = j;
+            }
+        }
+        int temporary = array[i];
+        array[i] = array[minPosition];
+        array[minPosition] = temporary;
+    }
+}
+int[] array = new int[100];
+FillArray(array);
+PrintArray(array);
+
+Console.WriteLine();
+Console.WriteLine();
+
+SelectionSort(array);
+PrintArray(array);
+
+/*
 //метод поиска позиции заданного числа в массиве
 //в качестве аргументов передаем сгенерированный массив collection и заданное число для поиска
 int IndexOf(int[] collection, int find)
@@ -53,3 +81,4 @@ Console.WriteLine();
 
 int pos = IndexOf(array, 4);
 Console.Write(pos);
+*/

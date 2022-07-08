@@ -1,2 +1,38 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿//====Работа с текстом
+//Дан текст. В тексте нужно все пробелы заменить черточками, 
+//Маленькие буквы 'к' заменить большими 'К', 
+//а большие 'C' заменить маленькими 'c'.
+
+
+string text = "- Я думаю, сказал князь, - что, " 
+            + "ежели бы вас послали вместо нашего милого Винценгероде,"
+            + "вы бы взяли приступом согласие прусского короля. "
+            + "Вы так красноречивы. Вы дадите мне чаю?";
+
+//string s = "qwerty"
+//s[3] // символ к
+
+//Создадим метод который будет принимать символ для замены, изменять его в тексте
+// и выводить преобразованный текст на экран
+
+string Replace(string text, char oldValue, char NewValue)
+{
+    //создадим пустую строку в которую будем выводить отформатированный текст
+    string result = string.Empty;
+
+    //определим длину исходного текста
+    int length = text.Length;
+
+    //цикл для преобразования текста
+    //в цикле будем каждый символ из текста сравнивать с задааным значением oldValue
+    for (int i = 0; i < length; i++)
+    {
+        if(text[i] == oldValue) result = result + $"{NewValue}";
+        else result = result + $"{text[i]}";
+    }
+    return result;
+}
+
+string newText = Replace(text, 'а', 'о');
+Console.WriteLine(newText);    
+
